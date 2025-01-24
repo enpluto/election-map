@@ -1,0 +1,41 @@
+$font-family: "Gothic A1", "Noto Sans TC";
+
+$font-size-sm: 16px;
+$font-size-md: 20px;
+$font-size-lg: 24px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+@mixin typography($font-size, $font-weight) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+}
+
+@mixin ch-text {
+  @include typography($font-size-sm, $font-weight-medium);
+}
+
+.h1 {
+  @include typography($font-size-lg, $font-weight-medium);
+}
+
+.h1-topic {
+  @include typography($font-size-lg, $font-weight-bold);
+}
+
+.ch-text {
+  @include typography($font-size-sm, $font-weight-medium);
+}
+
+.text {
+  @include typography($font-size-md, $font-weight-bold);
+}
+
+.text-sm {
+  @include typography($font-size-sm, $font-weight-regular);
+}

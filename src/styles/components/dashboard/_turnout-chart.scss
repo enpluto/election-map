@@ -1,0 +1,44 @@
+.turnout-container {
+  display: flex;
+  column-gap: 80px;
+  padding-left: 32px;
+
+  @media (max-width: $mobile-screen) {
+    padding-left: 0;
+  }
+
+  .turnout-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 18px;
+    column-gap: 48px;
+
+    @media (max-width: $mobile-screen) {
+      column-gap: 30px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
+.donut-wrapper {
+  position: relative;
+  height: 136px;
+  width: 136px;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: $mobile-screen) {
+    display: none;
+  }
+}
