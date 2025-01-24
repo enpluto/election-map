@@ -1,0 +1,49 @@
+.selector-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  width: 100%;
+
+  .country,
+  .city__selected,
+  .dist__selected {
+    @include bottom-white;
+  }
+}
+
+.selector-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.city,
+.dist {
+  position: relative;
+
+  img {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 48px;
+
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__item {
+    text-wrap: nowrap;
+    @include bottom-black;
+  }
+}
+
+.city:hover .city__list,
+.dist:hover .dist__list {
+  display: grid;
+}

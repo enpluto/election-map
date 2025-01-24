@@ -1,0 +1,119 @@
+.candidate-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  padding-left: 32px;
+
+  @media (min-width: $default-screen) {
+    row-gap: 30px;
+  }
+
+  @media (max-width: $mobile-screen) {
+    padding-left: 0;
+  }
+
+  &__item {
+    display: flex;
+    column-gap: 20px;
+
+    @media (min-width: $default-screen) {
+      position: relative;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-wrap: nowrap;
+    }
+
+    > span {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 66px;
+
+      @media (min-width: $default-screen) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: row !important;
+  width: 100%;
+
+  @media (max-width: $mobile-screen) {
+    width: auto;
+  }
+
+  .party-icon {
+    width: 92px;
+    height: 92px;
+
+    padding: 10px;
+    border-radius: 500px;
+    overflow: hidden;
+
+    @media (max-width: $medium-screen) {
+      width: 73.6px;
+      height: 73.6px;
+      padding: 8px;
+    }
+
+    @media (max-width: $mobile-screen) {
+      width: 58.88px;
+      height: 58.88px;
+      padding: 6.4px;
+    }
+
+    img {
+      border-radius: 500px;
+      object-fit: cover;
+
+      @media (max-width: $medium-screen) {
+        width: 57.6px;
+        height: 57.6px;
+      }
+
+      @media (max-width: $mobile-screen) {
+        width: 46.08px;
+        height: 46.08px;
+      }
+    }
+  }
+
+  .bar-container {
+    position: relative;
+    width: calc(100% - 92px);
+
+    @media (max-width: $medium-screen) {
+      width: calc(100% - 73.6px);
+    }
+
+    @media (max-width: $mobile-screen) {
+      display: none;
+    }
+
+    .bar-gray,
+    .bar {
+      position: absolute;
+      top: 50%;
+      left: -2px;
+      transform: translate(0%, -50%);
+      z-index: -1;
+
+      height: 24px;
+      border-radius: 0 300px 300px 0;
+    }
+
+    .bar-gray {
+      width: 100%;
+      background-color: $color-gray-02;
+    }
+  }
+}
