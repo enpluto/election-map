@@ -27,11 +27,9 @@ main {
   }
   @media (max-width: $tablet-screen) {
     max-width: $tablet-screen;
-    padding-bottom: 30px;
   }
   @media (max-width: $mobile-screen) {
     max-width: $mobile-screen;
-    padding-bottom: 30px;
   }
 }
 

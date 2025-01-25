@@ -5,18 +5,43 @@
 .dashboard-wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 54px;
+  row-gap: 32px;
 
   max-width: 596px;
   width: 100%;
+  padding-top: 30px;
+
+  @media (min-width: $default-screen) {
+    row-gap: 54px;
+    padding-top: 54px;
+  }
+
+  @media (max-width: $medium-screen) {
+    padding-top: 32px;
+  }
 
   @media (max-width: $small-screen) {
     max-width: 525px;
+    padding-top: 0;
   }
 
   @media (max-width: $tablet-screen) {
     max-width: 100%;
-    padding: 0 30px;
+    padding: 30px;
+  }
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 72px;
+
+  @media (min-width: $default-screen) {
+    row-gap: 96px;
+  }
+
+  @media (max-width: $tablet-screen) {
+    row-gap: 36px;
   }
 }
 

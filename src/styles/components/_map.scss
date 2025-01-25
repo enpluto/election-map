@@ -1,9 +1,17 @@
 .map-wrapper {
   position: relative;
-  padding-bottom: 100px;
+  padding-top: 24px;
+
+  @media (min-width: $small-screen) {
+    padding-bottom: 100px;
+  }
 
   @media (max-width: 1023px) {
     display: none;
+  }
+
+  @media (max-width: $small-screen) {
+    padding-top: 42px;
   }
 
   @media (max-width: $tablet-screen) {
@@ -13,12 +21,17 @@
     display: none;
   }
 
-  img {
+  .map-container {
+    width: 688px;
+    height: 880px;
+
     @media (max-width: $medium-screen) {
       width: 550px;
+      height: 704px;
     }
     @media (max-width: $small-screen) {
       width: 440px;
+      height: 563px;
     }
   }
 }
@@ -47,4 +60,20 @@
       @include bottom-white;
     }
   }
+}
+
+// map svg
+
+.cls-1 {
+  fill: #ebc80f;
+}
+
+.cls-2 {
+  fill: #6f66dc;
+}
+
+.cls-3 {
+  fill: #fff;
+  stroke: #aaa;
+  stroke-linejoin: round;
 }
