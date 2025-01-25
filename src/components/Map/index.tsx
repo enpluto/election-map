@@ -1,4 +1,4 @@
-import mapSvg from "../../assets/map.svg";
+import Taiwan from "./Taiwan";
 
 const Map = () => {
   const YearSelector = () => {
@@ -20,7 +20,7 @@ const Map = () => {
 
   return (
     <section className="map-wrapper">
-      <img src={mapSvg} alt="map" width={688} height={880} />
+      <Taiwan />
       <YearSelector />
     </section>
   );
