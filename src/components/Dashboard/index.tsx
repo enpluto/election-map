@@ -6,8 +6,10 @@ const Dashboard = () => {
   return (
     <section className="dashboard-wrapper">
       <Selector />
-      <CandidateChart />
-      <TurnoutChart />
+      <div className="dashboard-container">
+        <CandidateChart />
+        <TurnoutChart />
+      </div>
     </section>
   );
 };

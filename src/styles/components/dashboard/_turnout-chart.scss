@@ -3,6 +3,14 @@
   column-gap: 80px;
   padding-left: 32px;
 
+  @media (max-width: $small-screen) {
+    padding-bottom: 61px;
+  }
+
+  @media (max-width: $tablet-screen) {
+    padding-bottom: 0;
+  }
+
   @media (max-width: $mobile-screen) {
     padding-left: 0;
   }
