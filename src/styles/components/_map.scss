@@ -72,8 +72,24 @@
   fill: #6f66dc;
 }
 
-.cls-3 {
+path {
   fill: #fff;
   stroke: #aaa;
   stroke-linejoin: round;
+}
+
+.float:hover {
+  filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
+  transform: translate(-3px, -4px);
+  cursor: pointer;
+}
+
+.dot {
+  @media (max-width: $medium-screen) {
+    r: 8;
+  }
+
+  @media (max-width: $small-screen) {
+    r: 6.4;
+  }
 }
