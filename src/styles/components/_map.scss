@@ -24,6 +24,7 @@
   .map-container {
     width: 688px;
     height: 880px;
+    overflow: hidden;
 
     @media (max-width: $medium-screen) {
       width: 550px;
@@ -92,4 +93,10 @@ path {
   @media (max-width: $small-screen) {
     r: 6.4;
   }
+}
+
+.zoomed {
+  transform: scale(2);
+  transition: 3s;
+  // transform-origin: center;
 }
