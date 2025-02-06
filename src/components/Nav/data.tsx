@@ -43,7 +43,7 @@ export const arrowSvg = (
     <path
       d="M0 19H146.5M146.5 19L130.5 2M146.5 19L130.5 37"
       stroke="white"
-      stroke-width="3"
+      strokeWidth="3"
       className="blackArrow"
     />
   </svg>
