@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
-import { useSelection } from "../../../context/AreaContext";
+import { useSelection } from "../../../context/SelectionContext";
 import { taiwanDataset } from "../Taiwan/data";
 
 const Taiwan = () => {

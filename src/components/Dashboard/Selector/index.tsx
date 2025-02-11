@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import nextSvg from "../../../assets/next.svg";
 import plusSvg from "../../../assets/plus.svg";
-import { useSelection } from "../../../context/AreaContext";
+import { useSelection } from "../../../context/SelectionContext";
 import { cityDataset, districts } from "./data";
 
 const Selector = () => {
