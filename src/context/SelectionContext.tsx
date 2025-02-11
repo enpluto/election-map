@@ -4,6 +4,8 @@ interface SelectionContextType {
   selectedArea: string;
   selectArea: (area: string) => void;
   clearArea: () => void;
+  selectedYear: number;
+  setSelectedYear: (year: number) => void;
 }
 
 interface SelectionProviderProps {
@@ -16,6 +18,7 @@ const SelectionContext = createContext<SelectionContextType | undefined>(
 
 export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   const [selectedArea, setSelectedArea] = useState("");
+  const [selectedYear, setSelectedYear] = useState(2024);
 
   const selectArea = (area: string) => {
     setSelectedArea(area);
@@ -26,7 +29,15 @@ export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   };
 
   return (
-    <SelectionContext.Provider value={{ selectedArea, selectArea, clearArea }}>
+    <SelectionContext.Provider
+      value={{
+        selectedArea,
+        selectArea,
+        clearArea,
+        selectedYear,
+        setSelectedYear,
+      }}
+    >
       {children}
     </SelectionContext.Provider>
   );
