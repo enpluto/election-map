@@ -1,12 +1,12 @@
 import Dashboard from "./components/Dashboard";
 import Map from "./components/Map";
 import Nav from "./components/Nav";
-import { AreaProvider } from "./context/AreaContext";
+import { SelectionProvider } from "./context/SelectionContext";
 import "./styles/App.scss";
 
 function App() {
   return (
-    <AreaProvider>
+    <SelectionProvider>
       <main>
         <Nav />
         <div className="app-container">
@@ -14,7 +14,7 @@ function App() {
           <Dashboard />
         </div>
       </main>
-    </AreaProvider>
+    </SelectionProvider>
   );
 }
 
