@@ -1,11 +1,12 @@
 import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
+import { useArea } from "../../../context/AreaContext";
 import { taiwanDataset } from "../Taiwan/data";
 
 const Taiwan = () => {
-  const [hoveredId, setHoveredId] = useState("");
-  const [selected, setSelected] = useState(false);
+  const { selectedArea, selectArea } = useArea();
 
+  const [hoveredId, setHoveredId] = useState("");
   const [deviceWidth, setDeviceWidth] = useState(0);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -67,7 +68,8 @@ const Taiwan = () => {
   }, [cx, cy]);
 
   const handleSelectArea = (event) => {
-    setSelected(!selected);
+    const selectedId = event.currentTarget.id.slice(1);
+    selectArea(selectedId);
 
     const path = event.currentTarget.querySelector("path") || event.target;
     if (!path) return; // 如果沒有 path，則不執行
@@ -80,7 +82,7 @@ const Taiwan = () => {
 
   return (
     <div className="map-container">
-      {selected ? (
+      {selectedArea ? (
         <>
           <svg
             ref={svgRef}

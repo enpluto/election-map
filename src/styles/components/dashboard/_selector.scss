@@ -32,8 +32,9 @@
   &__list {
     position: absolute;
     top: 48px;
+    z-index: 10;
 
-    display: none;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -41,9 +42,4 @@
     text-wrap: nowrap;
     @include bottom-black;
   }
-}
-
-.city:hover .city__list,
-.dist:hover .dist__list {
-  display: grid;
 }
