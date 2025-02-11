@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import nextSvg from "../../../assets/next.svg";
 import plusSvg from "../../../assets/plus.svg";
-import { useArea } from "../../../context/AreaContext";
+import { useSelection } from "../../../context/AreaContext";
 import { cityDataset, districts } from "./data";
 
 const Selector = () => {
-  const { selectedArea, selectArea, clearArea } = useArea();
+  const { selectedArea, selectArea, clearArea } = useSelection();
   const [showList, setShowList] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 

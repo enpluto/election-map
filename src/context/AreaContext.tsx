@@ -1,18 +1,20 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-interface AreaContextType {
+interface SelectionContextType {
   selectedArea: string;
   selectArea: (area: string) => void;
   clearArea: () => void;
 }
 
-interface AreaProviderProps {
+interface SelectionProviderProps {
   children: ReactNode;
 }
 
-const AreaContext = createContext<AreaContextType | undefined>(undefined);
+const SelectionContext = createContext<SelectionContextType | undefined>(
+  undefined
+);
 
-export const AreaProvider = ({ children }: AreaProviderProps) => {
+export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   const [selectedArea, setSelectedArea] = useState("");
 
   const selectArea = (area: string) => {
@@ -24,14 +26,14 @@ export const AreaProvider = ({ children }: AreaProviderProps) => {
   };
 
   return (
-    <AreaContext.Provider value={{ selectedArea, selectArea, clearArea }}>
+    <SelectionContext.Provider value={{ selectedArea, selectArea, clearArea }}>
       {children}
-    </AreaContext.Provider>
+    </SelectionContext.Provider>
   );
 };
 
-export const useArea = (): AreaContextType => {
-  const context = useContext(AreaContext);
+export const useSelection = (): SelectionContextType => {
+  const context = useContext(SelectionContext);
 
   if (!context) {
     throw new Error("useArea must be used within an AreaProvider");

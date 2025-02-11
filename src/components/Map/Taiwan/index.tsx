@@ -1,10 +1,10 @@
 import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
-import { useArea } from "../../../context/AreaContext";
+import { useSelection } from "../../../context/AreaContext";
 import { taiwanDataset } from "../Taiwan/data";
 
 const Taiwan = () => {
-  const { selectedArea, selectArea } = useArea();
+  const { selectedArea, selectArea } = useSelection();
 
   const [hoveredId, setHoveredId] = useState("");
   const [deviceWidth, setDeviceWidth] = useState(0);
