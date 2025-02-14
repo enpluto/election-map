@@ -1,39 +1,10 @@
 import { PartyColor } from "../../../constants/party";
 import { useSelection } from "../../../context/SelectionContext";
-import { Dataset2012 } from "../../../data/2012";
-import { Dataset2016 } from "../../../data/2016";
-import { Dataset2020 } from "../../../data/2020";
-import { Dataset2024 } from "../../../data/2024";
 import { sortByDescending } from "../../../helpers/sortByDescending";
 
 const CandidateChart = () => {
-  const { selectedArea, selectedYear } = useSelection();
-
-  const electionData = () => {
-    let electionYear;
-
-    switch (selectedYear) {
-      case 2012:
-        electionYear = Dataset2012;
-        break;
-      case 2016:
-        electionYear = Dataset2016;
-        break;
-      case 2020:
-        electionYear = Dataset2020;
-        break;
-      default:
-        electionYear = Dataset2024;
-        break;
-    }
-
-    switch (selectedArea) {
-      case "":
-        return electionYear["全國"];
-      default:
-        return electionYear[selectedArea];
-    }
-  };
+  const { filteredData } = useSelection();
+  const candidateDataset = sortByDescending(filteredData.candidates);
 
   const BarChart = ({ data, percentage }) => {
     const { className, logo } = PartyColor[data.party];
@@ -58,12 +29,11 @@ const CandidateChart = () => {
     <div className="candidate-wrapper">
       <span className="h1-topic">投票結果</span>
       <ul className="candidate-list">
-        {sortByDescending(electionData().candidates).map((data) => {
+        {candidateDataset.map((data) => {
           const { party, name, votes } = data;
-          const percentage = (
-            (votes / electionData().validVotes) *
-            100
-          ).toFixed(1);
+          const percentage = ((votes / filteredData.validVotes) * 100).toFixed(
+            1
+          );
 
           return (
             <li key={party} className="candidate-list__item">
