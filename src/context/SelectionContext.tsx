@@ -1,4 +1,9 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useMemo, useState } from "react";
+import { Dataset2012 } from "../data/2012";
+import { Dataset2016 } from "../data/2016";
+import { Dataset2020 } from "../data/2020";
+import { Dataset2024 } from "../data/2024";
+import { FilteredDataType } from "../types/types";
 
 interface SelectionContextType {
   selectedArea: string;
@@ -6,6 +11,7 @@ interface SelectionContextType {
   clearArea: () => void;
   selectedYear: number;
   setSelectedYear: (year: number) => void;
+  filteredData: FilteredDataType;
 }
 
 interface SelectionProviderProps {
@@ -19,6 +25,31 @@ const SelectionContext = createContext<SelectionContextType | undefined>(
 export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   const [selectedArea, setSelectedArea] = useState("");
   const [selectedYear, setSelectedYear] = useState(2024);
+
+  const filteredData = useMemo(() => {
+    let electionYear;
+
+    switch (selectedYear) {
+      case 2012:
+        electionYear = Dataset2012;
+        break;
+      case 2016:
+        electionYear = Dataset2016;
+        break;
+      case 2020:
+        electionYear = Dataset2020;
+        break;
+      default:
+        electionYear = Dataset2024;
+        break;
+    }
+    switch (selectedArea) {
+      case "":
+        return electionYear["全國"];
+      default:
+        return electionYear[selectedArea];
+    }
+  }, [selectedYear, selectedArea]);
 
   const selectArea = (area: string) => {
     setSelectedArea(area);
@@ -36,6 +67,7 @@ export const SelectionProvider = ({ children }: SelectionProviderProps) => {
         clearArea,
         selectedYear,
         setSelectedYear,
+        filteredData,
       }}
     >
       {children}
