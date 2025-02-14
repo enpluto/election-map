@@ -1,25 +1,41 @@
 import { PartyColor } from "../../../constants/party";
+import { useSelection } from "../../../context/SelectionContext";
+import { Dataset2012 } from "../../../data/2012";
+import { Dataset2016 } from "../../../data/2016";
+import { Dataset2020 } from "../../../data/2020";
+import { Dataset2024 } from "../../../data/2024";
+import { sortByDescending } from "../../../helpers/sortByDescending";
 
 const CandidateChart = () => {
-  const resultDataset = [
-    {
-      party: "民主進步黨",
-      name: "賴清德",
-      percentage: "57.1%",
-    },
-    {
-      party: "中國國民黨",
-      name: "侯友宜",
-      percentage: "38.6%",
-    },
-    {
-      party: "台灣民眾黨",
-      name: "柯文哲",
-      percentage: "4.3%",
-    },
-  ];
+  const { selectedArea, selectedYear } = useSelection();
 
-  const BarChart = ({ data }) => {
+  const electionData = () => {
+    let electionYear;
+
+    switch (selectedYear) {
+      case 2012:
+        electionYear = Dataset2012;
+        break;
+      case 2016:
+        electionYear = Dataset2016;
+        break;
+      case 2020:
+        electionYear = Dataset2020;
+        break;
+      default:
+        electionYear = Dataset2024;
+        break;
+    }
+
+    switch (selectedArea) {
+      case "":
+        return electionYear["全國"];
+      default:
+        return electionYear[selectedArea];
+    }
+  };
+
+  const BarChart = ({ data, percentage }) => {
     const { className, logo } = PartyColor[data.party];
 
     return (
@@ -31,7 +47,7 @@ const CandidateChart = () => {
           <div className="bar-gray" />
           <div
             className={`bar ${className}`}
-            style={{ width: `${data.percentage}` }}
+            style={{ width: `${percentage}%` }}
           />
         </div>
       </div>
@@ -42,16 +58,24 @@ const CandidateChart = () => {
     <div className="candidate-wrapper">
       <span className="h1-topic">投票結果</span>
       <ul className="candidate-list">
-        {resultDataset.map((data) => (
-          <li key={data.party} className="candidate-list__item">
-            <div>
-              <span className="ch-text">{data.party}</span>
-              <span className="h1">{data.name}</span>
-            </div>
-            <BarChart data={data} />
-            <span className="text">{data.percentage}</span>
-          </li>
-        ))}
+        {sortByDescending(electionData().candidates).map((data) => {
+          const { party, name, votes } = data;
+          const percentage = (
+            (votes / electionData().validVotes) *
+            100
+          ).toFixed(1);
+
+          return (
+            <li key={party} className="candidate-list__item">
+              <div style={{ minWidth: "82px" }}>
+                <span className="ch-text">{party}</span>
+                <span className="h1">{name}</span>
+              </div>
+              <BarChart data={data} percentage={percentage} />
+              <span className="text">{percentage}%</span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

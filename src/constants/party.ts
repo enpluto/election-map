@@ -1,5 +1,6 @@
 import dppLogo from "../assets/dpp-logo.svg";
 import kmtLogo from "../assets/kmt-logo.svg";
+import pfpLogo from "../assets/pfp-logo.svg";
 import tppLogo from "../assets/tpp-logo.svg";
 
 export enum Party {
@@ -15,5 +16,5 @@ export const PartyColor: {
   [Party.DPP]: { className: "dpp-bg", logo: dppLogo },
   [Party.KMT]: { className: "kmt-bg", logo: kmtLogo },
   [Party.TPP]: { className: "tpp-bg", logo: tppLogo },
-  [Party.PFP]: { className: "pfp-bg" },
+  [Party.PFP]: { className: "pfp-bg", logo: pfpLogo },
 };
