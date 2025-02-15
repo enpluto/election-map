@@ -1,10 +1,12 @@
 import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
+import { Party, PartyCircle } from "../../../constants/party";
 import { useSelection } from "../../../context/SelectionContext";
+import { sortByDescending } from "../../../helpers/sortByDescending";
 import { taiwanDataset } from "../Taiwan/data";
 
 const Taiwan = () => {
-  const { selectedArea, selectArea } = useSelection();
+  const { selectedArea, selectArea, yearlyData } = useSelection();
 
   const [hoveredId, setHoveredId] = useState("");
   const [deviceWidth, setDeviceWidth] = useState(0);
@@ -96,12 +98,20 @@ const Taiwan = () => {
           >
             {taiwanDataset.map((area) => {
               const { id, name, d, dot } = area;
-              const { cx, cy, r, style } = dot;
+              const { cx, cy, r } = dot;
+
+              const topParty = sortByDescending(yearlyData[name].candidates)[0]
+                .party as Party;
 
               return (
                 <g key={id} id={id}>
                   <path name={name} d={d} />
-                  <circle className={`${style} dot`} cx={cx} cy={cy} r={r} />
+                  <circle
+                    className={`${PartyCircle[topParty]} dot`}
+                    cx={cx}
+                    cy={cy}
+                    r={r}
+                  />
                 </g>
               );
             })}
@@ -117,7 +127,10 @@ const Taiwan = () => {
         >
           {taiwanDataset.map((area) => {
             const { id, name, d, dot } = area;
-            const { cx, cy, r, style } = dot;
+            const { cx, cy, r } = dot;
+
+            const topParty = sortByDescending(yearlyData[name].candidates)[0]
+              .party as Party;
 
             return (
               <g
@@ -131,7 +144,12 @@ const Taiwan = () => {
                 onClick={(event) => handleSelectArea(event)}
               >
                 <path name={name} d={d} />
-                <circle className={`${style} dot`} cx={cx} cy={cy} r={r} />
+                <circle
+                  className={`${PartyCircle[topParty]} dot`}
+                  cx={cx}
+                  cy={cy}
+                  r={r}
+                />
               </g>
             );
           })}

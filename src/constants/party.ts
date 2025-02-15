@@ -11,10 +11,19 @@ export enum Party {
 }
 
 export const PartyColor: {
-  [key in Party]: { className: string; logo?: string };
+  [key in Party]: { className: string; logo: string };
 } = {
   [Party.DPP]: { className: "dpp-bg", logo: dppLogo },
   [Party.KMT]: { className: "kmt-bg", logo: kmtLogo },
   [Party.TPP]: { className: "tpp-bg", logo: tppLogo },
   [Party.PFP]: { className: "pfp-bg", logo: pfpLogo },
+};
+
+export const PartyCircle: {
+  [key in Party]: string;
+} = {
+  [Party.DPP]: "dpp-dot",
+  [Party.KMT]: "kmt-dot",
+  [Party.TPP]: "tpp-dot",
+  [Party.PFP]: "pfp-dot",
 };
