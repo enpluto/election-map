@@ -34,3 +34,19 @@ $color-party-pfp: #ff6310;
 .pfp-dot {
   fill: $color-party-pfp;
 }
+
+.dpp-path {
+  fill: mix(white, $color-party-dpp, 25%) !important;
+}
+
+.kmt-path {
+  fill: mix(white, $color-party-kmt, 25%) !important;
+}
+
+.tpp-path {
+  fill: mix(white, $color-party-tpp, 25%) !important;
+}
+
+.pfp-path {
+  fill: mix(white, $color-party-pfp, 25%) !important;
+}
