@@ -1,4 +1,4 @@
-export const linkDataset = [
+export const linkList = [
   {
     title: "選舉資料庫",
     url: "https://db.cec.gov.tw/Visual/President?dataLevel=N&legisId=00&typeId=ELC&subjectId=P0&themeId=4d83db17c1707e3defae5dc4d4e9c800",
