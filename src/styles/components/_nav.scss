@@ -48,9 +48,10 @@ nav {
     align-items: center;
     padding: 25px 30px;
 
+    background-color: black;
+
     &:hover {
-      background-color: white;
-      color: black;
+      filter: invert(1);
       cursor: pointer;
     }
   }
@@ -59,11 +60,5 @@ nav {
     font-size: 24px;
     font-weight: 700;
     line-height: 150%;
-  }
-}
-
-.blackArrow {
-  &:hover {
-    filter: invert(1);
   }
 }

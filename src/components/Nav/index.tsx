@@ -44,7 +44,7 @@ const Nav = () => {
               <a href={link.url} target="_blank" onClick={handleShowMenu}>
                 {link.title}
               </a>
-              <div className="blackArrow">{arrowSvg}</div>
+              {arrowSvg}
             </li>
           ))}
         </ul>

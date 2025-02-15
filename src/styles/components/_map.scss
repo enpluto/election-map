@@ -35,6 +35,12 @@
       height: 563px;
     }
   }
+
+  path {
+    fill: #fff;
+    stroke: #aaa;
+    stroke-linejoin: round;
+  }
 }
 
 .year-selector {
@@ -64,12 +70,6 @@
 }
 
 // map svg
-
-path {
-  fill: #fff;
-  stroke: #aaa;
-  stroke-linejoin: round;
-}
 
 .float:hover {
   filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
