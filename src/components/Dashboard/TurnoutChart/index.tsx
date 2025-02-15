@@ -1,24 +1,30 @@
 import { ArcElement, Chart as ChartJS, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { useSelection } from "../../../context/SelectionContext";
+import { formatNumber } from "../../../helpers/formatNumber";
 
 const TurnoutChart = () => {
+  const { filteredData } = useSelection();
+  const { validVotes, invalidVotes, registeredVoters } = filteredData;
+
+  const voterTurnout = Number(
+    (((validVotes + invalidVotes) / registeredVoters) * 100).toFixed(1)
+  );
+  const totalVotes = validVotes + invalidVotes;
+
   const turnoutDataset = [
-    { title: "投票率", value: "74.9%" },
-    { title: "有效票數", value: "14,300,940" },
-    { title: "投票數", value: "14,464,571" },
-    { title: "無效票數", value: "163,631" },
+    { title: "投票率", value: voterTurnout + "%" },
+    { title: "有效票數", value: formatNumber(validVotes) },
+    { title: "投票數", value: formatNumber(totalVotes) },
+    { title: "無效票數", value: formatNumber(invalidVotes) },
   ];
 
   const DonutChart = () => {
     const Chart = () => {
       ChartJS.register(Tooltip, ArcElement);
 
-      const ratio = turnoutDataset.find(
-        (data) => data.title === "投票率"
-      )?.value;
-
-      const valid = Number(ratio?.replace("%", ""));
-      const invalid = 100 - valid;
+      const valid = voterTurnout;
+      const invalid = 100 - voterTurnout;
 
       const data = {
         datasets: [

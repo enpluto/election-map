@@ -7,7 +7,7 @@ const Map = () => {
     const { selectedYear, setSelectedYear } = useSelection();
     const [showList, setShowList] = useState(false);
 
-    const years = [2024, 2020, 2016, 2012, 2008];
+    const years = [2024, 2020, 2016, 2012];
 
     const listRef = useRef<HTMLDivElement>(null);
 
