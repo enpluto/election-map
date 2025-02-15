@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import logoSvg from "../../assets/logo.svg";
 import menuSvg from "../../assets/menu.svg";
-import { arrowSvg, closeSvg, linkDataset } from "./data";
+import { arrowSvg, closeSvg, linkList } from "./data";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,14 +39,22 @@ const Nav = () => {
       <div className={`menu-wrapper ${isOpen ? "open" : ""}`} ref={listRef}>
         <div onClick={handleShowMenu}>{closeSvg}</div>
         <ul className="menu">
-          {linkDataset.map((link) => (
-            <li key={link.title} className="menu__item">
-              <a href={link.url} target="_blank" onClick={handleShowMenu}>
-                {link.title}
+          {linkList.map((link) => {
+            const { title, url } = link;
+
+            return (
+              <a
+                key={title}
+                href={url}
+                target="_blank"
+                className="menu__item"
+                onClick={handleShowMenu}
+              >
+                {title}
+                {arrowSvg}
               </a>
-              {arrowSvg}
-            </li>
-          ))}
+            );
+          })}
         </ul>
       </div>
     </>
