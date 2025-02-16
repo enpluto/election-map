@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { useEffect, useRef, useState } from "react";
-import { Party, PartyCircle } from "../../../constants/party";
+import { Party, PartyCircle, PartyPath } from "../../../constants/party";
 import { useSelection } from "../../../context/SelectionContext";
 import { sortByDescending } from "../../../helpers/sortByDescending";
 import { taiwanDataset } from "../Taiwan/data";
@@ -13,9 +13,6 @@ const Taiwan = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
-  const [cx, setCX] = useState(0);
-  const [cy, setCY] = useState(0);
-
   const svgRef = useRef(null);
 
   const handleMouseOver = (id: string) => {
@@ -24,6 +21,7 @@ const Taiwan = () => {
   };
 
   const handleMouseOut = () => {
+    setHoveredId("");
     bringToFront("_嘉義市");
   };
 
@@ -38,8 +36,6 @@ const Taiwan = () => {
   useEffect(() => {
     const handleResize = () => {
       setDeviceWidth(window.innerWidth);
-
-      console.log(deviceWidth);
 
       if (deviceWidth > 1280 && deviceWidth < 1440) {
         // 1280px ~ 1439px
@@ -65,74 +61,29 @@ const Taiwan = () => {
     };
   }, [deviceWidth]);
 
-  useEffect(() => {
-    console.log("New cx:", cx, "New cy:", cy);
-  }, [cx, cy]);
-
   const handleSelectArea = (event) => {
     const selectedId = event.currentTarget.id.slice(1);
     selectArea(selectedId);
-
-    const path = event.currentTarget.querySelector("path") || event.target;
-    if (!path) return; // 如果沒有 path，則不執行
-    const bbox = path.getBBox();
-
-    console.log(width, height);
-    setCX(bbox.x + bbox.width / 2);
-    setCY(bbox.y + bbox.height / 2);
   };
 
   return (
     <div className="map-container">
-      {selectedArea ? (
-        <>
-          <svg
-            ref={svgRef}
-            data-name="dotted-map"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox={`0 0 ${width} ${height}`}
-            transform={`translate(${-cx + width / 2}, ${
-              -cy + height / 2
-            }) scale(2)`}
-            style={{ transition: "transform 3s" }}
-          >
-            {taiwanDataset.map((area) => {
-              const { id, name, d, dot } = area;
-              const { cx, cy, r } = dot;
+      <svg
+        ref={svgRef}
+        data-name="dotted-map"
+        id="dotted-map"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 688.43 880.08"
+      >
+        {taiwanDataset.map((area) => {
+          const { id, name, d, dot } = area;
+          const { cx, cy, r } = dot;
 
-              const topParty = sortByDescending(yearlyData[name].candidates)[0]
-                .party as Party;
+          const topParty = sortByDescending(yearlyData[name].candidates)[0]
+            .party as Party;
 
-              return (
-                <g key={id} id={id}>
-                  <path name={name} d={d} />
-                  <circle
-                    className={`${PartyCircle[topParty]} dot`}
-                    cx={cx}
-                    cy={cy}
-                    r={r}
-                  />
-                </g>
-              );
-            })}
-          </svg>
-        </>
-      ) : (
-        <svg
-          ref={svgRef}
-          data-name="dotted-map"
-          id="dotted-map"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 688.43 880.08"
-        >
-          {taiwanDataset.map((area) => {
-            const { id, name, d, dot } = area;
-            const { cx, cy, r } = dot;
-
-            const topParty = sortByDescending(yearlyData[name].candidates)[0]
-              .party as Party;
-
-            return (
+          return (
+            <>
               <g
                 key={id}
                 id={id}
@@ -140,21 +91,56 @@ const Taiwan = () => {
                   handleMouseOver(id);
                 }}
                 onMouseOut={handleMouseOut}
-                className="float"
+                className={selectedArea === name ? "selected" : "float"}
                 onClick={(event) => handleSelectArea(event)}
               >
-                <path name={name} d={d} />
-                <circle
-                  className={`${PartyCircle[topParty]} dot`}
-                  cx={cx}
-                  cy={cy}
-                  r={r}
+                <path
+                  name={name}
+                  d={d}
+                  className={selectedArea === name ? PartyPath[topParty] : ""}
                 />
+                {selectedArea !== name && (
+                  <circle
+                    className={`${PartyCircle[topParty]} dot`}
+                    cx={cx}
+                    cy={cy}
+                    r={r}
+                  />
+                )}
+                {hoveredId === id && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="61"
+                    height="48"
+                    viewBox="0 0 61 48"
+                    fill="none"
+                    x={parseFloat(cx) - 61 / 2}
+                    y={parseFloat(cy) - 48}
+                    style={{ all: "unset" }}
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M60 1H1V29H26.8431L31 47L35.1569 29H60V1Z"
+                      fill="white"
+                    />
+                    <text
+                      x="30.5"
+                      y="17"
+                      font-size="16"
+                      fill="black"
+                      text-anchor="middle"
+                      dominant-baseline="middle"
+                    >
+                      {name}
+                    </text>
+                  </svg>
+                )}
               </g>
-            );
-          })}
-        </svg>
-      )}
+            </>
+          );
+        })}
+      </svg>
     </div>
   );
 };

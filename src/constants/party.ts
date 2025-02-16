@@ -27,3 +27,12 @@ export const PartyCircle: {
   [Party.TPP]: "tpp-dot",
   [Party.PFP]: "pfp-dot",
 };
+
+export const PartyPath: {
+  [key in Party]: string;
+} = {
+  [Party.DPP]: "dpp-path",
+  [Party.KMT]: "kmt-path",
+  [Party.TPP]: "tpp-path",
+  [Party.PFP]: "pfp-path",
+};

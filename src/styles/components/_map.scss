@@ -71,6 +71,13 @@
 
 // map svg
 
+.selected {
+  filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
+  transform: translate(-3px, -4px);
+  // scale: 1.02;
+  // transform: translate(-0%, -0%);
+}
+
 .float:hover {
   filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
   transform: translate(-3px, -4px);
