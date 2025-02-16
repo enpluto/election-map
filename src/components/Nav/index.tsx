@@ -1,24 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import logoSvg from "../../assets/logo.svg";
 import menuSvg from "../../assets/menu.svg";
+import useClickOutside from "../../hooks/useClickOutside";
 import Menu from "./Menu";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (listRef.current && !listRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(listRef, () => setIsOpen(false));
 
   const handleShowMenu = (event: React.MouseEvent) => {
     event.stopPropagation();
