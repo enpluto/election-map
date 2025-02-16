@@ -21,6 +21,7 @@ const Taiwan = () => {
   };
 
   const handleMouseOut = () => {
+    setHoveredId("");
     bringToFront("_嘉義市");
   };
 
@@ -82,30 +83,61 @@ const Taiwan = () => {
             .party as Party;
 
           return (
-            <g
-              key={id}
-              id={id}
-              onMouseOver={() => {
-                handleMouseOver(id);
-              }}
-              onMouseOut={handleMouseOut}
-              className={selectedArea === name ? "selected" : "float"}
-              onClick={(event) => handleSelectArea(event)}
-            >
-              <path
-                name={name}
-                d={d}
-                className={selectedArea === name ? PartyPath[topParty] : ""}
-              />
-              {selectedArea !== name && (
-                <circle
-                  className={`${PartyCircle[topParty]} dot`}
-                  cx={cx}
-                  cy={cy}
-                  r={r}
+            <>
+              <g
+                key={id}
+                id={id}
+                onMouseOver={() => {
+                  handleMouseOver(id);
+                }}
+                onMouseOut={handleMouseOut}
+                className={selectedArea === name ? "selected" : "float"}
+                onClick={(event) => handleSelectArea(event)}
+              >
+                <path
+                  name={name}
+                  d={d}
+                  className={selectedArea === name ? PartyPath[topParty] : ""}
                 />
-              )}
-            </g>
+                {selectedArea !== name && (
+                  <circle
+                    className={`${PartyCircle[topParty]} dot`}
+                    cx={cx}
+                    cy={cy}
+                    r={r}
+                  />
+                )}
+                {hoveredId === id && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="61"
+                    height="48"
+                    viewBox="0 0 61 48"
+                    fill="none"
+                    x={parseFloat(cx) - 61 / 2}
+                    y={parseFloat(cy) - 48}
+                    style={{ all: "unset" }}
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M60 1H1V29H26.8431L31 47L35.1569 29H60V1Z"
+                      fill="white"
+                    />
+                    <text
+                      x="30.5"
+                      y="17"
+                      font-size="16"
+                      fill="black"
+                      text-anchor="middle"
+                      dominant-baseline="middle"
+                    >
+                      {name}
+                    </text>
+                  </svg>
+                )}
+              </g>
+            </>
           );
         })}
       </svg>
