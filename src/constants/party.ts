@@ -11,12 +11,12 @@ export enum Party {
 }
 
 export const PartyColor: {
-  [key in Party]: { className: string; logo: string };
+  [key in Party]: { backgroundClassName: string; logo: string };
 } = {
-  [Party.DPP]: { className: "dpp-bg", logo: dppLogo },
-  [Party.KMT]: { className: "kmt-bg", logo: kmtLogo },
-  [Party.TPP]: { className: "tpp-bg", logo: tppLogo },
-  [Party.PFP]: { className: "pfp-bg", logo: pfpLogo },
+  [Party.DPP]: { backgroundClassName: "dpp-bg", logo: dppLogo },
+  [Party.KMT]: { backgroundClassName: "kmt-bg", logo: kmtLogo },
+  [Party.TPP]: { backgroundClassName: "tpp-bg", logo: tppLogo },
+  [Party.PFP]: { backgroundClassName: "pfp-bg", logo: pfpLogo },
 };
 
 export const PartyCircle: {
