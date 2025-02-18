@@ -115,5 +115,18 @@
       width: 100%;
       background-color: $color-gray-02;
     }
+
+    @keyframes fillBar {
+      from {
+        width: 0%;
+      }
+      to {
+        max-width: 100%;
+      }
+    }
+
+    .bar {
+      animation: fillBar 1s ease-out forwards;
+    }
   }
 }

@@ -12,10 +12,8 @@ const CandidateChart = () => {
       <ul className="candidate-list">
         {candidateDataset.map((candidate) => {
           const { party, name, votes } = candidate;
-          const percentage: string = (
-            (votes / filteredData.validVotes) *
-            100
-          ).toFixed(1);
+          const percentage: string =
+            ((votes / filteredData.validVotes) * 100).toFixed(1) + "%";
 
           return (
             <li key={party} className="candidate-list__item">
@@ -24,7 +22,7 @@ const CandidateChart = () => {
                 <span className="h1">{name}</span>
               </div>
               <BarChart candidate={candidate} percentage={percentage} />
-              <span className="text">{percentage}%</span>
+              <span className="text">{percentage}</span>
             </li>
           );
         })}
