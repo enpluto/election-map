@@ -3,6 +3,7 @@ import { Dataset2012 } from "../data/2012";
 import { Dataset2016 } from "../data/2016";
 import { Dataset2020 } from "../data/2020";
 import { Dataset2024 } from "../data/2024";
+import { calculateVotePercentage } from "../helpers/calculateVotePercentage";
 import { ElectionDataType, FilteredDataType } from "../types/types";
 
 interface SelectionContextType {
@@ -46,9 +47,9 @@ export const SelectionProvider = ({ children }: SelectionProviderProps) => {
 
     switch (selectedArea) {
       case "":
-        return yearlyData["全國"];
+        return calculateVotePercentage(yearlyData["全國"]);
       default:
-        return yearlyData[selectedArea];
+        return calculateVotePercentage(yearlyData[selectedArea]);
     }
   }, [selectedYear, selectedArea, yearlyData]);
 

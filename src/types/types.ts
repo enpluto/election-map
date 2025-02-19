@@ -3,12 +3,15 @@ export interface ElectionDataType {
 }
 
 export interface FilteredDataType {
-  candidates: {
-    name: string;
-    party: string;
-    votes: number;
-  }[];
+  candidates: CandidateDataType[];
   validVotes: number;
   invalidVotes: number;
   registeredVoters: number;
+}
+
+export interface CandidateDataType {
+  name: string;
+  party: string;
+  votes: number;
+  percentage: string;
 }
