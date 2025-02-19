@@ -47,14 +47,18 @@ const AreaSelector = () => {
     );
   };
 
+  const hasSelectedArea = () => {
+    if (!selectedArea) {
+      return <AreaList />;
+    } else {
+      return <div className="city__selected">{selectedArea}</div>;
+    }
+  };
+
   return (
     <div className="selector-container">
       <img src={nextSvg} alt="next" />
-      {!selectedArea ? (
-        <AreaList />
-      ) : (
-        <div className="city__selected">{selectedArea}</div>
-      )}
+      {hasSelectedArea()}
     </div>
   );
 };
