@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import nextSvg from "../../../assets/next.svg";
 import plusSvg from "../../../assets/plus.svg";
 import { useSelection } from "../../../context/SelectionContext";
-import { cityDataset, districts } from "./data";
+import { areaList } from "./data";
 
 const Selector = () => {
   const { selectedArea, selectArea, clearArea } = useSelection();
@@ -46,13 +46,13 @@ const Selector = () => {
             />
             {showList && (
               <div className="city__list" ref={listRef}>
-                {cityDataset.map((city) => (
+                {areaList.map((area) => (
                   <div
-                    key={city}
+                    key={area}
                     className="city__item"
-                    onClick={() => handleSelectArea(city)}
+                    onClick={() => handleSelectArea(area)}
                   >
-                    {city}
+                    {area}
                   </div>
                 ))}
               </div>
@@ -65,34 +65,12 @@ const Selector = () => {
     );
   };
 
-  const DistSelector = () => {
-    return (
-      <div className="selector-container">
-        <img src={nextSvg} alt="next" />
-        <div className="dist">
-          <img src={plusSvg} alt="plus" />
-          <div className="dist__list">
-            {districts.map((dist) => (
-              <div key={dist} className="dist__item">
-                {dist}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="dist__selected" style={{ cursor: "default" }}>
-          鹽埕區
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="selector-wrapper">
       <div className="country" onClick={clearArea}>
         全國
       </div>
       <AreaSelector />
-      {/* <DistSelector /> */}
     </div>
   );
 };
