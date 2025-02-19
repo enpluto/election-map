@@ -15,7 +15,7 @@ const BarChart = ({ candidate }: { candidate: CandidateDataType }) => {
         <div
           key={percentage}
           className={`bar ${backgroundClassName}`}
-          style={{ width: percentage }}
+          style={{ width: `${percentage}%` }}
         />
       </div>
     </div>

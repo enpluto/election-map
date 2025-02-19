@@ -6,8 +6,7 @@ export const calculateVotePercentage = (filteredData: FilteredDataType) => {
 
   const newFilteredData = sortByDescending(filteredData.candidates).map(
     (candidate) => {
-      const percentage =
-        ((candidate.votes / validVotes) * 100).toFixed(1) + "%";
+      const percentage = ((candidate.votes / validVotes) * 100).toFixed(1);
       return { ...candidate, percentage: percentage };
     }
   );
