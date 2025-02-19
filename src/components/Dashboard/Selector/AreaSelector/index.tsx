@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import nextSvg from "../../../../assets/next.svg";
 import plusSvg from "../../../../assets/plus.svg";
 import { useSelection } from "../../../../context/SelectionContext";
+import useClickOutside from "../../../../hooks/useClickOutside";
 import { areaList } from "../data";
 
 const AreaSelector = () => {
@@ -9,18 +10,7 @@ const AreaSelector = () => {
   const [showList, setShowList] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (listRef.current && !listRef.current.contains(event.target as Node)) {
-        setShowList(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(listRef, () => setShowList(false));
 
   const handleShowList = (event: React.MouseEvent) => {
     event.stopPropagation();
