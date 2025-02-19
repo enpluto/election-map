@@ -22,32 +22,39 @@ const AreaSelector = () => {
     setShowList(false);
   };
 
+  const AreaList = () => {
+    return (
+      <div className="city">
+        <img
+          src={plusSvg}
+          alt="plus"
+          onClick={(event) => handleShowList(event)}
+        />
+        {showList && (
+          <div className="city__list" ref={listRef}>
+            {areaList.map((area) => (
+              <div
+                key={area}
+                className="city__item"
+                onClick={() => handleSelectArea(area)}
+              >
+                {area}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="selector-container">
       <img src={nextSvg} alt="next" />
-      {!selectedArea && (
-        <div className="city">
-          <img
-            src={plusSvg}
-            alt="plus"
-            onClick={(event) => handleShowList(event)}
-          />
-          {showList && (
-            <div className="city__list" ref={listRef}>
-              {areaList.map((area) => (
-                <div
-                  key={area}
-                  className="city__item"
-                  onClick={() => handleSelectArea(area)}
-                >
-                  {area}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+      {!selectedArea ? (
+        <AreaList />
+      ) : (
+        <div className="city__selected">{selectedArea}</div>
       )}
-      {selectedArea && <div className="city__selected">{selectedArea}</div>}
     </div>
   );
 };
