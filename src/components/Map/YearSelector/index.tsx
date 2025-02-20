@@ -1,13 +1,12 @@
 import { useRef, useState } from "react";
 import { useSelection } from "../../../context/SelectionContext";
 import useClickOutside from "../../../hooks/useClickOutside";
+import { yearList } from "../Taiwan/data";
 
 const YearSelector = () => {
   const { selectedYear, setSelectedYear } = useSelection();
   const [showList, setShowList] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
-
-  const years = [2024, 2020, 2016, 2012];
 
   useClickOutside(listRef, () => setShowList(false));
 
@@ -25,7 +24,7 @@ const YearSelector = () => {
     <div className="year-selector" ref={listRef}>
       {showList && (
         <ul>
-          {years.map((year) => (
+          {yearList.map((year) => (
             <li
               key={year}
               className="year-selector__item ch-text"
