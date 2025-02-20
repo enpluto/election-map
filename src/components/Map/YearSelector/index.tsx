@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useSelection } from "../../../context/SelectionContext";
 import useClickOutside from "../../../hooks/useClickOutside";
+import { toggleDropdown } from "../../../utils/toggleDropdown";
 import { yearList } from "../Taiwan/data";
 
 const YearSelector = () => {
@@ -9,11 +10,6 @@ const YearSelector = () => {
   const listRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(listRef, () => setShowList(false));
-
-  const handleShowList = (event: React.MouseEvent) => {
-    event.stopPropagation();
-    setShowList((prev) => !prev);
-  };
 
   const handleSelectYear = (year: number) => {
     setSelectedYear(year);
@@ -37,7 +33,7 @@ const YearSelector = () => {
       )}
       <div
         className="year-selector__item__selected"
-        onClick={(e) => handleShowList(e)}
+        onClick={(e) => toggleDropdown(e, setShowList)}
       >
         {selectedYear} 年
       </div>
