@@ -35,7 +35,10 @@ const YearSelector = () => {
           ))}
         </ul>
       )}
-      <div className="year-selector__item__selected" onClick={handleShowList}>
+      <div
+        className="year-selector__item__selected"
+        onClick={(e) => handleShowList(e)}
+      >
         {selectedYear} 年
       </div>
     </div>
