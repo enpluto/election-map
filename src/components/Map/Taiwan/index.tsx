@@ -1,9 +1,8 @@
 import { useRef, useState } from "react";
-import { Party, PartyCircle, PartyPath } from "../../../constants/party";
 import { useSelection } from "../../../context/SelectionContext";
-import { sortByDescending } from "../../../helpers/sortByDescending";
 import { bringToFront } from "../../../utils/bringToFront";
-import { taiwanDataset } from "../Taiwan/data";
+import { areaList } from "../Taiwan/data";
+import MapArea from "./MapArea";
 
 const Taiwan = () => {
   const { selectedArea, selectArea, yearlyData } = useSelection();
@@ -20,7 +19,7 @@ const Taiwan = () => {
     bringToFront(svgRef, "_嘉義市");
   };
 
-  const handleSelectArea = (event) => {
+  const handleSelectArea = (event: React.MouseEvent<SVGGElement>) => {
     const selectedId = event.currentTarget.id.slice(1);
     selectArea(selectedId);
   };
@@ -34,69 +33,18 @@ const Taiwan = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 688.43 880.08"
       >
-        {taiwanDataset.map((area) => {
-          const { id, name, d, dot } = area;
-          const { cx, cy, r } = dot;
-
-          const topParty = sortByDescending(yearlyData[name].candidates)[0]
-            .party as Party;
-
-          return (
-            <g
-              key={id}
-              id={id}
-              onMouseOver={() => {
-                handleMouseOver(id);
-              }}
-              onMouseOut={handleMouseOut}
-              className={selectedArea === name ? "selected" : "float"}
-              onClick={(event) => handleSelectArea(event)}
-            >
-              <path
-                name={name}
-                d={d}
-                className={selectedArea === name ? PartyPath[topParty] : ""}
-              />
-              {selectedArea !== name && (
-                <circle
-                  className={`${PartyCircle[topParty]} dot`}
-                  cx={cx}
-                  cy={cy}
-                  r={r}
-                />
-              )}
-              {hoveredId === id && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="61"
-                  height="48"
-                  viewBox="0 0 61 48"
-                  fill="none"
-                  x={parseFloat(cx) - 61 / 2}
-                  y={parseFloat(cy) - 48}
-                  style={{ all: "unset" }}
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M60 1H1V29H26.8431L31 47L35.1569 29H60V1Z"
-                    fill="white"
-                  />
-                  <text
-                    x="30.5"
-                    y="17"
-                    font-size="16"
-                    fill="black"
-                    text-anchor="middle"
-                    dominant-baseline="middle"
-                  >
-                    {name}
-                  </text>
-                </svg>
-              )}
-            </g>
-          );
-        })}
+        {areaList.map((area) => (
+          <MapArea
+            key={area.id}
+            area={area}
+            yearlyData={yearlyData}
+            selectedArea={selectedArea}
+            hoveredId={hoveredId}
+            handleMouseOver={handleMouseOver}
+            handleMouseOut={handleMouseOut}
+            handleSelectArea={handleSelectArea}
+          />
+        ))}
       </svg>
     </div>
   );
