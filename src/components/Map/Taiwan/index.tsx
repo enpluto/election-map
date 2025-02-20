@@ -1,8 +1,8 @@
-import * as d3 from "d3";
 import { useRef, useState } from "react";
 import { Party, PartyCircle, PartyPath } from "../../../constants/party";
 import { useSelection } from "../../../context/SelectionContext";
 import { sortByDescending } from "../../../helpers/sortByDescending";
+import { bringToFront } from "../../../utils/bringToFront";
 import { taiwanDataset } from "../Taiwan/data";
 
 const Taiwan = () => {
@@ -12,20 +12,12 @@ const Taiwan = () => {
 
   const handleMouseOver = (id: string) => {
     setHoveredId(id);
-    bringToFront(id);
+    bringToFront(svgRef, id);
   };
 
   const handleMouseOut = () => {
     setHoveredId("");
-    bringToFront("_嘉義市");
-  };
-
-  const bringToFront = (id: string) => {
-    const svg = d3.select(svgRef.current);
-    const target = svg.select(`#${id}`);
-    if (!target.empty()) {
-      target.raise();
-    }
+    bringToFront(svgRef, "_嘉義市");
   };
 
   const handleSelectArea = (event) => {
