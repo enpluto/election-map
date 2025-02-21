@@ -1,4 +1,4 @@
-export const areaList = [
+export const mapAreaList = [
   {
     id: "_臺東縣",
     name: "臺東縣",
