@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import nextSvg from "../../../../assets/next.svg";
 import plusSvg from "../../../../assets/plus.svg";
-import { useSelection } from "../../../../context/SelectionContext";
+import { useSelection } from "../../../../context/useSelection";
 import { areaList } from "../../../../data/list";
 import useClickOutside from "../../../../hooks/useClickOutside";
 
 const AreaSelector = () => {
-  const { selectedArea, selectArea } = useSelection();
+  const { selectedArea, setSelectedArea } = useSelection();
   const [showList, setShowList] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -18,7 +18,7 @@ const AreaSelector = () => {
   };
 
   const handleSelectArea = (city: string) => {
-    selectArea(city);
+    setSelectedArea(city);
     setShowList(false);
   };
 

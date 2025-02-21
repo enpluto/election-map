@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useSelection } from "../../../context/SelectionContext";
+import { useSelection } from "../../../context/useSelection";
 import { yearList } from "../../../data/list";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { toggleDropdown } from "../../../utils/toggleDropdown";

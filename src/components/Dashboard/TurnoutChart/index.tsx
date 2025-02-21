@@ -1,4 +1,4 @@
-import { useSelection } from "../../../context/SelectionContext";
+import { useSelection } from "../../../context/useSelection";
 import { formatNumber } from "../../../utils/formatNumber";
 import DonutChart from "./DonutChart";
 import TurnoutState from "./TurnoutState";

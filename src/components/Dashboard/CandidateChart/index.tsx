@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useSelection } from "../../../context/SelectionContext";
+import { useSelection } from "../../../context/useSelection";
 import BarChart from "./BarChart";
 
 const CandidateChart = () => {

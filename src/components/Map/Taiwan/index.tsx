@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import { useSelection } from "../../../context/SelectionContext";
+import { useSelection } from "../../../context/useSelection";
 import { mapAreaList } from "../../../data/svg/map";
 import { bringToFront } from "../../../utils/bringToFront";
 import MapArea from "./MapArea";
 
 const Taiwan = () => {
-  const { selectedArea, selectArea, yearlyData } = useSelection();
+  const { selectedArea, setSelectedArea, yearlyData } = useSelection();
   const [hoveredId, setHoveredId] = useState("");
   const svgRef = useRef(null);
 
@@ -21,7 +21,7 @@ const Taiwan = () => {
 
   const handleSelectArea = (event: React.MouseEvent<SVGGElement>) => {
     const selectedId = event.currentTarget.id.slice(1);
-    selectArea(selectedId);
+    setSelectedArea(selectedId);
   };
 
   return (
