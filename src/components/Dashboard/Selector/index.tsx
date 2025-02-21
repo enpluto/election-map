@@ -1,4 +1,4 @@
-import { useSelection } from "../../../context/SelectionContext";
+import { useSelection } from "../../../context/useSelection";
 import AreaSelector from "./AreaSelector";
 
 const Selector = () => {
