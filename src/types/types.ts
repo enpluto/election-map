@@ -13,5 +13,5 @@ export interface CandidateDataType {
   name: string;
   party: string;
   votes: number;
-  percentage: string;
+  percentage?: string;
 }
