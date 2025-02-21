@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import nextSvg from "../../../../assets/next.svg";
 import plusSvg from "../../../../assets/plus.svg";
 import { useSelection } from "../../../../context/SelectionContext";
+import { areaList } from "../../../../data/list";
 import useClickOutside from "../../../../hooks/useClickOutside";
-import { areaList } from "../data";
 
 const AreaSelector = () => {
   const { selectedArea, selectArea } = useSelection();

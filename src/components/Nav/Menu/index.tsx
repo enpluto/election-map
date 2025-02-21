@@ -1,6 +1,6 @@
 import { RefObject } from "react";
+import { linkList } from "../../../data/list";
 import { arrowSvg, closeSvg } from "../../../data/svg/icon";
-import { linkList } from "../data";
 
 interface MenuPropsType {
   isOpen: boolean;
