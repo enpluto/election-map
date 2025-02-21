@@ -1,6 +1,4 @@
-export const yearList = [2024, 2020, 2016, 2012];
-
-export const areaList = [
+export const mapAreaList = [
   {
     id: "_臺東縣",
     name: "臺東縣",

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useSelection } from "../../../context/SelectionContext";
+import { mapAreaList } from "../../../data/svg/map";
 import { bringToFront } from "../../../utils/bringToFront";
-import { areaList } from "../Taiwan/data";
 import MapArea from "./MapArea";
 
 const Taiwan = () => {
@@ -33,7 +33,7 @@ const Taiwan = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 688.43 880.08"
       >
-        {areaList.map((area) => (
+        {mapAreaList.map((area) => (
           <MapArea
             key={area.id}
             area={area}

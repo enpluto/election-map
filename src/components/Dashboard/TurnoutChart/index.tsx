@@ -1,5 +1,5 @@
 import { useSelection } from "../../../context/SelectionContext";
-import { formatNumber } from "../../../helpers/formatNumber";
+import { formatNumber } from "../../../utils/formatNumber";
 import DonutChart from "./DonutChart";
 import TurnoutState from "./TurnoutState";
 

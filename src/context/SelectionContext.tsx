@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
-import { Dataset2012 } from "../data/2012";
-import { Dataset2016 } from "../data/2016";
-import { Dataset2020 } from "../data/2020";
-import { Dataset2024 } from "../data/2024";
+import { Dataset2012 } from "../data/election/2012";
+import { Dataset2016 } from "../data/election/2016";
+import { Dataset2020 } from "../data/election/2020";
+import { Dataset2024 } from "../data/election/2024";
 import { calculateVotePercentage } from "../helpers/calculateVotePercentage";
 import { ElectionDataType, FilteredDataType } from "../types/types";
 

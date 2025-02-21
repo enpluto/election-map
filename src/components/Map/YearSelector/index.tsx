@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { useSelection } from "../../../context/SelectionContext";
+import { yearList } from "../../../data/list";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { toggleDropdown } from "../../../utils/toggleDropdown";
-import { yearList } from "../Taiwan/data";
 
 const YearSelector = () => {
   const { selectedYear, setSelectedYear } = useSelection();
