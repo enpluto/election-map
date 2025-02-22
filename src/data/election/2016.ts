@@ -1,6 +1,6 @@
-import { ElectionDataType } from "../types/types";
+import { ElectionData } from "../../types/types";
 
-export const Dataset2016: ElectionDataType = {
+export const election2016: ElectionData = {
   全國: {
     candidates: [
       { name: "朱立倫", party: "中國國民黨", votes: 3813365 },

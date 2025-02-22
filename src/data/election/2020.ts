@@ -1,6 +1,6 @@
-import { ElectionDataType } from "../types/types";
+import { ElectionData } from "../../types/types";
 
-export const Dataset2020: ElectionDataType = {
+export const election2020: ElectionData = {
   全國: {
     candidates: [
       { name: "宋楚瑜", party: "親民黨", votes: 608590 },

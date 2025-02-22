@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { CandidateDataType } from "../types/types";
+import { CandidateData } from "../types/types";
 
 interface UseFillingBarProps {
-  data: CandidateDataType[];
+  data: CandidateData[];
   duration: number;
 }
 

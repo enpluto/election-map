@@ -1,13 +1,13 @@
 import { ArcElement, Chart as ChartJS, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-interface DonutChartPropsType {
+interface DonutChartProps {
   voterTurnout: string;
 }
 
 ChartJS.register(Tooltip, ArcElement);
 
-const DonutChart = ({ voterTurnout }: DonutChartPropsType) => {
+const DonutChart = ({ voterTurnout }: DonutChartProps) => {
   const valid = Number(voterTurnout);
   const invalid = 100 - valid;
 

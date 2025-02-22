@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ElectionDataType, FilteredDataType } from "../types/types";
+import { AreaData, ElectionData } from "../types/types";
 
 export interface SelectionContextType {
   selectedArea: string;
@@ -7,8 +7,8 @@ export interface SelectionContextType {
   clearArea: () => void;
   selectedYear: number;
   setSelectedYear: (year: number) => void;
-  filteredData: FilteredDataType;
-  yearlyData: ElectionDataType;
+  areaData: AreaData;
+  yearlyData: ElectionData;
 }
 
 export const SelectionContext = createContext<SelectionContextType | undefined>(

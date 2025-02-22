@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { Dataset2012 } from "../data/election/2012";
-import { Dataset2016 } from "../data/election/2016";
-import { Dataset2020 } from "../data/election/2020";
-import { Dataset2024 } from "../data/election/2024";
+import { election2012 } from "../data/election/2012";
+import { election2016 } from "../data/election/2016";
+import { election2020 } from "../data/election/2020";
+import { election2024 } from "../data/election/2024";
 import { calculateVotePercentage } from "../helpers/calculateVotePercentage";
 import { SelectionContext } from "./SelectionContext";
 
@@ -13,26 +13,26 @@ interface SelectionProviderProps {
 export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   const [selectedArea, setSelectedArea] = useState("");
   const [selectedYear, setSelectedYear] = useState(2024);
-  const [yearlyData, setYearlyData] = useState(Dataset2024);
+  const [yearlyData, setYearlyData] = useState(election2024);
 
   useEffect(() => {
     switch (selectedYear) {
       case 2012:
-        setYearlyData(Dataset2012);
+        setYearlyData(election2012);
         break;
       case 2016:
-        setYearlyData(Dataset2016);
+        setYearlyData(election2016);
         break;
       case 2020:
-        setYearlyData(Dataset2020);
+        setYearlyData(election2020);
         break;
       default:
-        setYearlyData(Dataset2024);
+        setYearlyData(election2024);
         break;
     }
   }, [selectedYear]);
 
-  const filteredData = useMemo(() => {
+  const areaData = useMemo(() => {
     return selectedArea === ""
       ? calculateVotePercentage(yearlyData["全國"])
       : calculateVotePercentage(yearlyData[selectedArea]);
@@ -50,7 +50,7 @@ export const SelectionProvider = ({ children }: SelectionProviderProps) => {
         clearArea,
         selectedYear,
         setSelectedYear,
-        filteredData,
+        areaData,
         yearlyData,
       }}
     >

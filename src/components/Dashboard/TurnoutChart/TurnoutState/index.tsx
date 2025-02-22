@@ -1,8 +1,8 @@
-interface TurnoutStatePropsType {
+interface TurnoutStateProps {
   turnoutList: { title: string; value: string }[];
 }
 
-const TurnoutState = ({ turnoutList }: TurnoutStatePropsType) => {
+const TurnoutState = ({ turnoutList }: TurnoutStateProps) => {
   return (
     <ul className="turnout-list">
       {turnoutList.map(({ title, value }) => (
