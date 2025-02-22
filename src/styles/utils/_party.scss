@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $color-party-dpp: #009a00;
 $color-party-kmt: #0000aa;
 $color-party-tpp: #28c8c8;
@@ -36,17 +38,17 @@ $color-party-pfp: #ff6310;
 }
 
 .dpp-path {
-  fill: mix(white, $color-party-dpp, 25%) !important;
+  fill: color.mix(white, $color-party-dpp, 25%) !important;
 }
 
 .kmt-path {
-  fill: mix(white, $color-party-kmt, 25%) !important;
+  fill: color.mix(white, $color-party-kmt, 25%) !important;
 }
 
 .tpp-path {
-  fill: mix(white, $color-party-tpp, 25%) !important;
+  fill: color.mix(white, $color-party-tpp, 25%) !important;
 }
 
 .pfp-path {
-  fill: mix(white, $color-party-pfp, 25%) !important;
+  fill: color.mix(white, $color-party-pfp, 25%) !important;
 }

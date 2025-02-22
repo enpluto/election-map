@@ -5,7 +5,7 @@
 
   background-color: white;
   border-bottom: 3px black solid;
-  @include ch-text;
+  @include typography.ch-text;
 
   &:hover {
     cursor: pointer;
@@ -17,7 +17,7 @@
 
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  @include ch-text;
+  @include typography.ch-text;
 
   &:hover {
     text-decoration: underline;
