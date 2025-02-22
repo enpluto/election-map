@@ -1,13 +1,13 @@
-@import "../styles/base/reset";
-@import "../styles/base/variables";
-@import "../styles/base/mixins";
+@use "../styles/base/reset";
+@use "../styles/base/variables";
+@use "../styles/base/mixins";
 
-@import "../styles/utils/typography";
-@import "../styles/utils/party";
+@use "../styles/utils/typography";
+@use "../styles/utils/party";
 
-@import "../styles/components/dashboard";
-@import "../styles/components/map";
-@import "../styles/components/nav";
+@use "../styles/components/dashboard";
+@use "../styles/components/map";
+@use "../styles/components/nav";
 
 body {
   background-image: url("/src/assets/background.svg");

@@ -1,6 +1,6 @@
-@import "../components/dashboard/candidate-chart";
-@import "../components/dashboard/selector";
-@import "../components/dashboard/turnout-chart";
+@use "../components/dashboard/candidate-chart";
+@use "../components/dashboard/selector";
+@use "../components/dashboard/turnout-chart";
 
 .dashboard-wrapper {
   display: flex;
