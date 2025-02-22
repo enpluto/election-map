@@ -3,7 +3,7 @@ import { CandidateDataType } from "../../../../types/types";
 
 const BarChart = ({ candidate }: { candidate: CandidateDataType }) => {
   const { party, percentage } = candidate;
-  const { backgroundClassName, logo } = PartyColor[candidate.party as Party];
+  const { backgroundClassName, logo } = PartyColor[party as Party];
 
   return (
     <div className="bar-wrapper">
