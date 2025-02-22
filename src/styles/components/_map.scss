@@ -1,0 +1,96 @@
+@use "../base/variables";
+@use "../base/mixins";
+
+.map-wrapper {
+  position: relative;
+  padding-top: 24px;
+
+  @media (min-width: variables.$small-screen) {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+
+  @media (max-width: variables.$small-screen) {
+    padding-top: 42px;
+  }
+
+  @media (max-width: variables.$tablet-screen) {
+    display: none;
+  }
+  @media (max-width: variables.$mobile-screen) {
+    display: none;
+  }
+
+  .map-container {
+    width: 688px;
+    height: 880px;
+    overflow: hidden;
+
+    @media (max-width: variables.$medium-screen) {
+      width: 550px;
+      height: 704px;
+    }
+    @media (max-width: variables.$small-screen) {
+      width: 440px;
+      height: 563px;
+    }
+  }
+
+  path {
+    fill: #fff;
+    stroke: #aaa;
+    stroke-linejoin: round;
+  }
+}
+
+.year-selector {
+  position: absolute;
+  bottom: 87px;
+  left: 0;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  &__item {
+    padding: 15.5px 24px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__selected {
+      @include mixins.bottom-white;
+    }
+  }
+}
+
+// map svg
+
+.selected {
+  filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
+  transform: translate(-3px, -4px);
+}
+
+.float:hover {
+  filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
+  transform: translate(-3px, -4px);
+  cursor: pointer;
+}
+
+.dot {
+  @media (max-width: variables.$medium-screen) {
+    r: 8;
+  }
+
+  @media (max-width: variables.$small-screen) {
+    r: 6.4;
+  }
+}

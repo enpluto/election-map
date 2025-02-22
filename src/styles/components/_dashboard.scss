@@ -1,0 +1,58 @@
+@use "../base/variables";
+@use "../components/dashboard/candidate-chart";
+@use "../components/dashboard/selector";
+@use "../components/dashboard/turnout-chart";
+
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  max-width: 596px;
+  width: 100%;
+  padding-top: 30px;
+
+  @media (min-width: variables.$default-screen) {
+    row-gap: 54px;
+    padding-top: 54px;
+  }
+
+  @media (max-width: variables.$medium-screen) {
+    padding-top: 32px;
+  }
+
+  @media (max-width: variables.$small-screen) {
+    max-width: 525px;
+    padding-top: 0;
+  }
+
+  @media (max-width: variables.$tablet-screen) {
+    max-width: 100%;
+    padding: 30px;
+  }
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 72px;
+
+  @media (min-width: variables.$default-screen) {
+    row-gap: 96px;
+  }
+
+  @media (max-width: variables.$tablet-screen) {
+    row-gap: 36px;
+  }
+}
+
+.candidate-wrapper,
+.turnout-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 23px;
+
+  @media (min-width: variables.$default-screen) {
+    row-gap: 39px;
+  }
+}

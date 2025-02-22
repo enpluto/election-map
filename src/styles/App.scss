@@ -1,0 +1,40 @@
+@use "../styles/base/reset";
+@use "../styles/base/variables";
+@use "../styles/base/mixins";
+
+@use "../styles/utils/typography";
+@use "../styles/utils/party";
+
+@use "../styles/components/dashboard";
+@use "../styles/components/map";
+@use "../styles/components/nav";
+
+body {
+  background-image: url("/src/assets/background.svg");
+  background-color: variables.$color-gray-01;
+}
+
+main {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+
+  @media (max-width: variables.$medium-screen) {
+    max-width: variables.$medium-screen;
+  }
+  @media (max-width: variables.$small-screen) {
+    max-width: variables.$small-screen;
+  }
+  @media (max-width: variables.$tablet-screen) {
+    max-width: variables.$tablet-screen;
+  }
+  @media (max-width: variables.$mobile-screen) {
+    max-width: variables.$mobile-screen;
+  }
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
