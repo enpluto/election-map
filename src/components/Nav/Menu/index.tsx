@@ -2,13 +2,13 @@ import { RefObject } from "react";
 import { linkList } from "../../../data/list";
 import { arrowSvg, closeSvg } from "../../../data/svg/icon";
 
-interface MenuPropsType {
+interface MenuProps {
   isOpen: boolean;
   listRef: RefObject<HTMLDivElement>;
   handleShowMenu: (event: React.MouseEvent) => void;
 }
 
-const Menu = ({ isOpen, listRef, handleShowMenu }: MenuPropsType) => {
+const Menu = ({ isOpen, listRef, handleShowMenu }: MenuProps) => {
   return (
     <div className={`menu-wrapper ${isOpen ? "open" : ""}`} ref={listRef}>
       <div onClick={(e) => handleShowMenu(e)}>{closeSvg}</div>
