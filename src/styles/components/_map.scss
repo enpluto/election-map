@@ -74,8 +74,6 @@
 .selected {
   filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
   transform: translate(-3px, -4px);
-  // scale: 1.02;
-  // transform: translate(-0%, -0%);
 }
 
 .float:hover {
@@ -92,10 +90,4 @@
   @media (max-width: $small-screen) {
     r: 6.4;
   }
-}
-
-.zoomed {
-  transform: scale(2);
-  transition: 3s;
-  // transform-origin: center;
 }
