@@ -1,12 +1,12 @@
 import { useSelection } from "../../../context/useSelection";
-import { useFillingBar } from "../../../hooks/useFillingBar";
+import { useIncreasingValues } from "../../../hooks/useIncreasingValues";
 import BarChart from "./BarChart";
 
 const CandidateChart = () => {
   const { areaData } = useSelection();
   const candidateDataset = areaData.candidates;
 
-  const currentValues = useFillingBar({
+  const currentValues = useIncreasingValues({
     data: candidateDataset,
     duration: 1500,
   });

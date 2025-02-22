@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { CandidateData } from "../types/types";
 
-interface UseFillingBarProps {
+interface UseIncreasingValuesProps {
   data: CandidateData[];
   duration: number;
 }
 
-export const useFillingBar = ({ data, duration }: UseFillingBarProps) => {
+export const useIncreasingValues = ({
+  data,
+  duration,
+}: UseIncreasingValuesProps) => {
   const [currentValues, setCurrentValues] = useState<string[]>(
     new Array(data.length).fill("0")
   );
