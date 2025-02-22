@@ -1,7 +1,7 @@
 import { Party, PartyColor } from "../../../../constants/party";
-import { CandidateDataType } from "../../../../types/types";
+import { CandidateData } from "../../../../types/types";
 
-const BarChart = ({ candidate }: { candidate: CandidateDataType }) => {
+const BarChart = ({ candidate }: { candidate: CandidateData }) => {
   const { party, percentage } = candidate;
   const { backgroundClassName, logo } = PartyColor[party as Party];
 

@@ -4,8 +4,8 @@ import DonutChart from "./DonutChart";
 import TurnoutState from "./TurnoutState";
 
 const TurnoutChart = () => {
-  const { filteredData } = useSelection();
-  const { validVotes, invalidVotes, registeredVoters } = filteredData;
+  const { areaData } = useSelection();
+  const { validVotes, invalidVotes, registeredVoters } = areaData;
 
   const totalVotes = validVotes + invalidVotes;
   const voterTurnout = ((totalVotes / registeredVoters) * 100).toFixed(1);

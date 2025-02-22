@@ -1,6 +1,6 @@
 import { Party, PartyCircle, PartyPath } from "../../../../constants/party";
 import { sortByDescending } from "../../../../helpers/sortByDescending";
-import { ElectionDataType } from "../../../../types/types";
+import { ElectionData } from "../../../../types/types";
 
 interface AreaType {
   id: string;
@@ -11,7 +11,7 @@ interface AreaType {
 
 interface MapAreaProps {
   area: AreaType;
-  yearlyData: ElectionDataType;
+  yearlyData: ElectionData;
   selectedArea: string;
   hoveredId: string;
   handleMouseOver: (id: string) => void;

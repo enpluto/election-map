@@ -3,8 +3,8 @@ import { useFillingBar } from "../../../hooks/useFillingBar";
 import BarChart from "./BarChart";
 
 const CandidateChart = () => {
-  const { filteredData } = useSelection();
-  const candidateDataset = filteredData.candidates;
+  const { areaData } = useSelection();
+  const candidateDataset = areaData.candidates;
 
   const currentValues = useFillingBar({
     data: candidateDataset,

@@ -1,15 +1,15 @@
-import { FilteredDataType } from "../types/types";
+import { AreaData, CandidateData, RawAreaData } from "../types/types";
 import { sortByDescending } from "./sortByDescending";
 
-export const calculateVotePercentage = (filteredData: FilteredDataType) => {
-  const { validVotes } = filteredData;
+export const calculateVotePercentage = (rawAreaData: RawAreaData): AreaData => {
+  const { validVotes } = rawAreaData;
 
-  const newFilteredData = sortByDescending(filteredData.candidates).map(
-    (candidate) => {
-      const percentage = ((candidate.votes / validVotes) * 100).toFixed(1);
-      return { ...candidate, percentage: percentage };
-    }
-  );
+  const candidateData: CandidateData[] = sortByDescending(
+    rawAreaData.candidates
+  ).map((candidate) => {
+    const percentage = ((candidate.votes / validVotes) * 100).toFixed(1);
+    return { ...candidate, percentage: percentage };
+  });
 
-  return { ...filteredData, candidates: newFilteredData };
+  return { ...rawAreaData, candidates: candidateData };
 };

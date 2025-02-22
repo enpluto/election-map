@@ -1,6 +1,6 @@
-import { ElectionDataType } from "../types/types";
+import { ElectionData } from "../../types/types";
 
-export const Dataset2024: ElectionDataType = {
+export const election2024: ElectionData = {
   全國: {
     candidates: [
       { name: "柯文哲", party: "台灣民眾黨", votes: 3690466 },
