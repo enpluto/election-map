@@ -1,17 +1,19 @@
+@use "../../base/variables";
+
 .turnout-container {
   display: flex;
   column-gap: 80px;
   padding-left: 32px;
 
-  @media (max-width: $small-screen) {
+  @media (max-width: variables.$small-screen) {
     padding-bottom: 61px;
   }
 
-  @media (max-width: $tablet-screen) {
+  @media (max-width: variables.$tablet-screen) {
     padding-bottom: 0;
   }
 
-  @media (max-width: $mobile-screen) {
+  @media (max-width: variables.$mobile-screen) {
     padding-left: 0;
   }
 
@@ -22,7 +24,7 @@
     row-gap: 18px;
     column-gap: 48px;
 
-    @media (max-width: $mobile-screen) {
+    @media (max-width: variables.$mobile-screen) {
       column-gap: 30px;
     }
 
@@ -48,7 +50,7 @@
     transform: translate(-50%, -50%);
   }
 
-  @media (max-width: $mobile-screen) {
+  @media (max-width: variables.$mobile-screen) {
     display: none;
   }
 }

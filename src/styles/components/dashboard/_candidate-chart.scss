@@ -1,14 +1,16 @@
+@use "../../base/variables";
+
 .candidate-list {
   display: flex;
   flex-direction: column;
   row-gap: 24px;
   padding-left: 32px;
 
-  @media (min-width: $default-screen) {
+  @media (min-width: variables.$default-screen) {
     row-gap: 40px;
   }
 
-  @media (max-width: $mobile-screen) {
+  @media (max-width: variables.$mobile-screen) {
     padding-left: 0;
   }
 
@@ -16,7 +18,7 @@
     display: flex;
     column-gap: 20px;
 
-    @media (min-width: $default-screen) {
+    @media (min-width: variables.$default-screen) {
       position: relative;
     }
 
@@ -33,7 +35,7 @@
       justify-content: flex-end;
       min-width: 66px;
 
-      @media (min-width: $default-screen) {
+      @media (min-width: variables.$default-screen) {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -47,7 +49,7 @@
   flex-direction: row !important;
   width: 100%;
 
-  @media (max-width: $mobile-screen) {
+  @media (max-width: variables.$mobile-screen) {
     width: auto;
   }
 
@@ -59,13 +61,13 @@
     border-radius: 500px;
     overflow: hidden;
 
-    @media (max-width: $medium-screen) {
+    @media (max-width: variables.$medium-screen) {
       width: 73.6px;
       height: 73.6px;
       padding: 8px;
     }
 
-    @media (max-width: $mobile-screen) {
+    @media (max-width: variables.$mobile-screen) {
       width: 58.88px;
       height: 58.88px;
       padding: 6.4px;
@@ -75,12 +77,12 @@
       border-radius: 500px;
       object-fit: cover;
 
-      @media (max-width: $medium-screen) {
+      @media (max-width: variables.$medium-screen) {
         width: 57.6px;
         height: 57.6px;
       }
 
-      @media (max-width: $mobile-screen) {
+      @media (max-width: variables.$mobile-screen) {
         width: 46.08px;
         height: 46.08px;
       }
@@ -91,11 +93,11 @@
     position: relative;
     width: calc(100% - 92px);
 
-    @media (max-width: $medium-screen) {
+    @media (max-width: variables.$medium-screen) {
       width: calc(100% - 73.6px);
     }
 
-    @media (max-width: $mobile-screen) {
+    @media (max-width: variables.$mobile-screen) {
       display: none;
     }
 
@@ -113,7 +115,7 @@
 
     .bar-gray {
       width: 100%;
-      background-color: $color-gray-02;
+      background-color: variables.$color-gray-02;
     }
 
     @keyframes fillBar {

@@ -1,8 +1,11 @@
+@use "../base/variables";
+@use "../base/mixins";
+
 .map-wrapper {
   position: relative;
   padding-top: 24px;
 
-  @media (min-width: $small-screen) {
+  @media (min-width: variables.$small-screen) {
     padding-bottom: 100px;
   }
 
@@ -10,14 +13,14 @@
     display: none;
   }
 
-  @media (max-width: $small-screen) {
+  @media (max-width: variables.$small-screen) {
     padding-top: 42px;
   }
 
-  @media (max-width: $tablet-screen) {
+  @media (max-width: variables.$tablet-screen) {
     display: none;
   }
-  @media (max-width: $mobile-screen) {
+  @media (max-width: variables.$mobile-screen) {
     display: none;
   }
 
@@ -26,11 +29,11 @@
     height: 880px;
     overflow: hidden;
 
-    @media (max-width: $medium-screen) {
+    @media (max-width: variables.$medium-screen) {
       width: 550px;
       height: 704px;
     }
-    @media (max-width: $small-screen) {
+    @media (max-width: variables.$small-screen) {
       width: 440px;
       height: 563px;
     }
@@ -64,7 +67,7 @@
     }
 
     &__selected {
-      @include bottom-white;
+      @include mixins.bottom-white;
     }
   }
 }
@@ -74,8 +77,6 @@
 .selected {
   filter: drop-shadow(3px 4px 0 rgba(170, 170, 170, 0.5));
   transform: translate(-3px, -4px);
-  // scale: 1.02;
-  // transform: translate(-0%, -0%);
 }
 
 .float:hover {
@@ -85,17 +86,11 @@
 }
 
 .dot {
-  @media (max-width: $medium-screen) {
+  @media (max-width: variables.$medium-screen) {
     r: 8;
   }
 
-  @media (max-width: $small-screen) {
+  @media (max-width: variables.$small-screen) {
     r: 6.4;
   }
-}
-
-.zoomed {
-  transform: scale(2);
-  transition: 3s;
-  // transform-origin: center;
 }
