@@ -34,11 +34,6 @@ nav {
 
   transition: right 0.3s ease;
 
-  @media (max-width: variables.$mobile-screen) {
-    row-gap: 44px;
-    max-width: 187.5px;
-  }
-
   > div {
     align-self: flex-end;
     height: 32px;
@@ -48,6 +43,11 @@ nav {
 
   &.open {
     right: 0 !important;
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    row-gap: 44px;
+    max-width: 187.5px;
   }
 }
 
@@ -64,10 +64,6 @@ nav {
   flex-direction: column;
   row-gap: 24px;
 
-  @media (max-width: variables.$mobile-screen) {
-    row-gap: 12px;
-  }
-
   &__item {
     display: flex;
     justify-content: space-between;
@@ -76,12 +72,12 @@ nav {
 
     background-color: black;
 
-    @media (max-width: variables.$mobile-screen) {
-      padding: 0 15px;
-    }
-
     &:hover {
       filter: invert(1);
+    }
+
+    @media (max-width: variables.$mobile-screen) {
+      padding: 0 15px;
     }
   }
 
@@ -93,5 +89,9 @@ nav {
     @media (max-width: variables.$mobile-screen) {
       font-size: 16px;
     }
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    row-gap: 12px;
   }
 }

@@ -9,13 +9,13 @@
 
   width: 100%;
 
-  @media (max-width: variables.$mobile-screen) {
-    gap: 15px;
-  }
-
   .country,
   .city__selected {
     @include mixins.bottom-white;
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    gap: 15px;
   }
 }
 
@@ -32,14 +32,14 @@
 .city {
   position: relative;
 
-  @media (max-width: variables.$mobile-screen) {
-    position: static;
-  }
-
   img {
     &:hover {
       cursor: pointer;
     }
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    position: static;
   }
 
   &__list {
