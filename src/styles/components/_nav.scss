@@ -1,8 +1,17 @@
+@use "../base/variables";
+
 nav {
   position: relative;
   display: flex;
   justify-content: space-between;
   padding: 30px 30px 0 30px;
+
+  @media (max-width: variables.$tablet-screen) {
+    img:nth-child(2) {
+      max-width: 24px;
+      max-height: 36px;
+    }
+  }
 }
 
 .menu-wrapper {
@@ -35,6 +44,19 @@ nav {
   &.open {
     right: 0 !important;
   }
+
+  @media (max-width: variables.$mobile-screen) {
+    row-gap: 44px;
+    max-width: 187.5px;
+  }
+}
+
+.close {
+  @media (max-width: variables.$mobile-screen) {
+    svg {
+      max-width: 24px;
+    }
+  }
 }
 
 .menu {
@@ -53,11 +75,23 @@ nav {
     &:hover {
       filter: invert(1);
     }
+
+    @media (max-width: variables.$mobile-screen) {
+      padding: 0 15px;
+    }
   }
 
   a {
     font-size: 24px;
     font-weight: 700;
     line-height: 150%;
+
+    @media (max-width: variables.$mobile-screen) {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    row-gap: 12px;
   }
 }

@@ -1,5 +1,6 @@
 import { useSelection } from "../../../context/useSelection";
 import { useIncreasingValues } from "../../../hooks/useIncreasingValues";
+import { useWindowWidth } from "../../../hooks/useWindowWidth";
 import BarChart from "./BarChart";
 
 const CandidateChart = () => {
@@ -10,6 +11,8 @@ const CandidateChart = () => {
     data: candidateDataset,
     duration: 1500,
   });
+
+  const isMobile = useWindowWidth() <= 375;
 
   return (
     <div className="candidate-wrapper">
@@ -25,7 +28,9 @@ const CandidateChart = () => {
                 <span className="h1">{name}</span>
               </div>
               <BarChart candidate={candidate} />
-              <span className="text">{currentValues[index]}%</span>
+              <span className="text">
+                {isMobile ? percentage : currentValues[index]}%
+              </span>
             </li>
           );
         })}
