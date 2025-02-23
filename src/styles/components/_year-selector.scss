@@ -7,7 +7,9 @@
   row-gap: 8px;
 
   &__item {
-    padding: 15.5px 24px;
+    @include mixins.bottom;
+
+    // padding: 15.5px 24px;
 
     background-color: rgba(0, 0, 0, 0.6);
     color: white;

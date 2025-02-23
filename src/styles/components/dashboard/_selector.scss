@@ -1,3 +1,4 @@
+@use "../../base/variables";
 @use "../../base/mixins";
 
 .selector-wrapper {
@@ -8,9 +9,12 @@
 
   width: 100%;
 
+  @media (max-width: variables.$mobile-screen) {
+    gap: 15px;
+  }
+
   .country,
-  .city__selected,
-  .dist__selected {
+  .city__selected {
     @include mixins.bottom-white;
   }
 }
@@ -19,10 +23,18 @@
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media (max-width: variables.$mobile-screen) {
+    gap: 12px;
+  }
 }
 
 .city {
   position: relative;
+
+  @media (max-width: variables.$mobile-screen) {
+    position: static;
+  }
 
   img {
     &:hover {
@@ -37,10 +49,20 @@
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: variables.$mobile-screen) {
+      top: 173px;
+      left: 30px;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__item {
     text-wrap: nowrap;
     @include mixins.bottom-black;
+
+    @media (max-width: variables.$mobile-screen) {
+      padding: 15.5px 23px;
+    }
   }
 }

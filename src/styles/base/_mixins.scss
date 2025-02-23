@@ -1,26 +1,33 @@
+@use "../base/variables";
 @use "../utils/typography";
 
-@mixin bottom-white {
+@mixin bottom {
   padding: 15.5px 24px;
-
-  background-color: white;
-  border-bottom: 3px black solid;
   @include typography.ch-text;
+
+  @media (max-width: variables.$mobile-screen) {
+    padding: 15.5px 18px;
+  }
 
   &:hover {
     cursor: pointer;
   }
 }
 
+@mixin bottom-white {
+  @include bottom;
+
+  background-color: white;
+  border-bottom: 3px black solid;
+}
+
 @mixin bottom-black {
-  padding: 15.5px 24px;
+  @include bottom;
 
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  @include typography.ch-text;
 
   &:hover {
     text-decoration: underline;
-    cursor: pointer;
   }
 }
