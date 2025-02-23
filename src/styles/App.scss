@@ -8,6 +8,7 @@
 @use "../styles/components/dashboard";
 @use "../styles/components/map";
 @use "../styles/components/nav";
+@use "../styles/components/year-selector";
 
 body {
   background-image: url("/src/assets/background.svg");

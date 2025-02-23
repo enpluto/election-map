@@ -1,11 +1,13 @@
+import YearSelector from "../common/YearSelector";
 import Taiwan from "./Taiwan";
-import YearSelector from "./YearSelector";
 
 const Map = () => {
   return (
     <section className="map-wrapper">
       <Taiwan />
-      <YearSelector />
+      <div className="map-mode">
+        <YearSelector mode="map" />
+      </div>
     </section>
   );
 };
