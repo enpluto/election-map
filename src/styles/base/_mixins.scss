@@ -5,29 +5,29 @@
   padding: 15.5px 24px;
   @include typography.ch-text;
 
-  @media (max-width: variables.$mobile-screen) {
-    padding: 15.5px 18px;
-  }
-
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: variables.$mobile-screen) {
+    padding: 15.5px 18px;
   }
 }
 
 @mixin bottom-white {
-  @include bottom;
-
   background-color: white;
   border-bottom: 3px black solid;
+
+  @include bottom;
 }
 
 @mixin bottom-black {
-  @include bottom;
-
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 
   &:hover {
     text-decoration: underline;
   }
+
+  @include bottom;
 }

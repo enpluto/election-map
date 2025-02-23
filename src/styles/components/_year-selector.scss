@@ -7,12 +7,10 @@
   row-gap: 8px;
 
   &__item {
-    @include mixins.bottom;
-
-    // padding: 15.5px 24px;
-
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
+
+    @include mixins.bottom;
 
     &:hover {
       cursor: pointer;
