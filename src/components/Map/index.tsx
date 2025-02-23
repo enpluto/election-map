@@ -5,7 +5,9 @@ const Map = () => {
   return (
     <section className="map-wrapper">
       <Taiwan />
-      <YearSelector />
+      <div className="map-mode">
+        <YearSelector mode="map" />
+      </div>
     </section>
   );
 };

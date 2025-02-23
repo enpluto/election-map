@@ -4,7 +4,13 @@ import { yearList } from "../../../data/list";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { toggleDropdown } from "../../../utils/toggleDropdown";
 
-const YearSelector = () => {
+type Mode = "map" | "selector";
+
+interface YearSelectorProps {
+  mode: Mode;
+}
+
+const YearSelector = ({ mode }: YearSelectorProps) => {
   const { selectedYear, setSelectedYear } = useSelection();
   const [showList, setShowList] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
@@ -17,9 +23,9 @@ const YearSelector = () => {
   };
 
   return (
-    <div className="year-selector" ref={listRef}>
+    <div style={{ position: "relative" }} ref={listRef}>
       {showList && (
-        <ul>
+        <ul className={mode === "selector" ? "expand-down" : ""}>
           {yearList.map((year) => (
             <li
               key={year}

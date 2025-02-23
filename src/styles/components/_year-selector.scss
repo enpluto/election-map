@@ -1,0 +1,43 @@
+@use "../base/variables";
+@use "../base/mixins";
+
+.year-selector {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  &__item {
+    padding: 15.5px 24px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__selected {
+      @include mixins.bottom-white;
+    }
+  }
+}
+
+.map-mode {
+  position: absolute;
+  bottom: 87px;
+  left: 0;
+  z-index: 10;
+}
+
+.selector-mode {
+  display: none;
+
+  @media (max-width: variables.$tablet-screen) {
+    display: block;
+  }
+}
+
+.expand-down {
+  position: absolute;
+  top: 58px;
+}
