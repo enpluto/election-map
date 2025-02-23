@@ -1,5 +1,5 @@
+import YearSelector from "../common/YearSelector";
 import Taiwan from "./Taiwan";
-import YearSelector from "./YearSelector";
 
 const Map = () => {
   return (

@@ -1,5 +1,5 @@
 import { useSelection } from "../../../context/useSelection";
-import YearSelector from "../../Map/YearSelector";
+import YearSelector from "../../common/YearSelector";
 import AreaSelector from "./AreaSelector";
 
 const Selector = () => {
